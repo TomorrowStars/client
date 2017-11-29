@@ -10,16 +10,17 @@ import 'rxjs/Rx';
 })
 export class ProductComponent implements OnInit {
 
-  datasource: Observable<any>;
-  products: Array<any> = [];
+  products: Observable<any>;
+  // products: Array<any> = [];
 
   constructor(private http: Http) {
-    this.datasource = http.get('api/products')
+
+    this.products = http.get('/api/products')
     .map((res) => res.json());
    }
 
   ngOnInit() {
-    this.datasource.subscribe((data) => this.products = data);
+    // this.datasource.subscribe((data) => this.products = data);
   }
 
 }
